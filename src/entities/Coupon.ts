@@ -9,5 +9,5 @@ export class Coupon {
   value: string;
 
   @ManyToOne(() => Reward)
-  Reward: Reward;
+  reward: Reward;
 }
