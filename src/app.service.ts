@@ -28,14 +28,14 @@ export class AppService {
       where: { id: playerId },
     });
     if (!player) {
-      throw new Error('Player not found');
+      throw new BadRequestException('Player not found');
     }
 
     const reward = await this.rewardRepository.findOne({
       where: { id: rewardId },
     });
     if (!reward) {
-      throw new Error('Reward not found');
+      throw new BadRequestException('Reward not found');
     }
 
     // Check if reward is valid within startDate and endDate
@@ -87,7 +87,7 @@ export class AppService {
     });
 
     if (!coupon) {
-      throw new BadRequestException('Coupon is not available');
+      throw new BadRequestException('Coupon is not found');
     }
 
     const playerCoupon = {
